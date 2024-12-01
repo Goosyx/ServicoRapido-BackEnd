@@ -1,5 +1,5 @@
 """
-ASGI config for nuancestore project.
+ASGI config for servicorapido project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
