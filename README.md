@@ -1,8 +1,8 @@
-# Projeto Integrador - Nuance Store - Backend
+# Projeto Integrador - Serviço Rápido - Backend
 
 <img src="https://img.shields.io/npm/l/react">
 
-Por [Ruan Azevedo](https://www.github.com/azevedoruan), [Pedro Luiz Ellero](https://www.github.com/PedroEllero), [Hugo Okumura](https://github.com/HugoOkumura) e [Marcos Paulo Oliveira](https://github.com/Marcos953).
+Por [Alex Magalhães da Silva Junior](https://www.github.com/MagalhaesExe), [Sergio Murilo Cardoso Valentini](https://www.github.com/Goosyx) e [Marcos Paulo Oliveira](https://github.com/Marcos953).
 
 ## Sobre o projeto
 
