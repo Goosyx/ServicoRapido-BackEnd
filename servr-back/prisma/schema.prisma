@@ -1,0 +1,122 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user{
+  id String @id @db.Uuid
+  name String @db.VarChar(255)
+  email String @unique @db.VarChar(255)
+  password String @db.VarChar(255)
+  cpf String? @db.VarChar(255)
+  cnpj String? @db.VarChar(255)
+  userType String @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  address address[]
+  product product[]
+  stores stores[]
+}
+
+model client {
+  id String @id @db.Uuid
+  name String @db.VarChar(255)
+  email String @unique @db.VarChar(255)
+  password String @db.VarChar(255)
+
+  cart cart?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model cart {
+  id String @id @db.Uuid
+
+  client client @relation(fields: [clientId], references: [id])
+  clientId String @db.Uuid @unique
+
+  cartItems cartItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model cartItem {
+  id String @id @db.Uuid
+  quantity Float @db.Real
+
+  cart cart @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  cartId String @db.Uuid
+
+  product product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String @db.Uuid 
+
+  productColor String? @db.VarChar(255) 
+  productSize String? @db.VarChar(255)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model address{
+  id String @id @db.Uuid
+  street String @db.VarChar(255)
+  number String? @db.VarChar(255)
+  complement String? @db.VarChar(255)
+  city String @db.VarChar(255)
+  state String @db.VarChar(255)
+  zipCode String @db.VarChar(8)
+  owner user @relation(fields: [userId], references: [id]) 
+  userId String @db.Uuid
+}
+
+model product{
+  id String @id @db.Uuid
+  user user @relation(fields: [userId], references: [id])
+  userId String @db.Uuid
+  title String @db.VarChar(255)
+  description String @db.VarChar(255)
+  price Float @db.Real
+  status Boolean @db.Boolean
+  quantity Float @db.Real
+  color String[] @db.VarChar(255)
+  size String[] @db.VarChar(255)
+  materials String[] @db.VarChar(255)
+  category String @db.VarChar(255)
+  unit String @db.VarChar(255)
+  weight Float @db.Real
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  images images[]
+  cartItem cartItem[]
+}
+
+model images{
+  id String @id @db.Uuid
+  imageUrl String @db.Text
+  product product @relation(fields: [productId], references: [id])
+  productId String @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model stores {
+  id String @id @db.Uuid
+  name String @db.VarChar(255)
+  userId String @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  user user @relation(fields: [userId], references: [id])
+}
