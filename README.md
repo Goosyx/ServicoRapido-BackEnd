@@ -8,7 +8,7 @@ Por [Alex Magalhães da Silva Junior](https://www.github.com/MagalhaesExe), [Ser
 
 Este é um projeto para a disciplina de **Projeto Integrador** da UTFPR de Campo Mourão. O Objetivo dessa disciplina é criar uma aplicação Web integrando todos os aspectos relacionado ao desenvolvimento Web do back-end ao front-end, utilizando as mais diversas tecnologias do mercado.
 
-Nosso projeto específico é um Marketplace de Serviços.
+Nosso projeto específico é um Marketplace de Lojas de Roupas.
 
 ## Modelo conceitual
 
@@ -16,6 +16,7 @@ Nosso projeto específico é um Marketplace de Serviços.
 
 ## Tecnologias utilizadas
 
-- Python
-- Django
-- MySQL
+- TypeScript
+- Node.js
+- Nest.js
+- Next.js
