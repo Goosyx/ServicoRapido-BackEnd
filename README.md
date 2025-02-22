@@ -17,6 +17,7 @@ Nosso projeto específico é um Marketplace de Lojas de Roupas.
 ## Tecnologias utilizadas
 
 - TypeScript
+- JavaScript
 - Node.js
 - Nest.js
 - Next.js
