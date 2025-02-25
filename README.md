@@ -14,6 +14,17 @@ Nosso projeto específico é um Marketplace de Lojas de Roupas.
 
 ![Modelo Conceitual](modelo-conceitual.png)
 
+## Comandos para rodar o back-end
+```
+docker compose up -d
+```
+```
+npx prisma migrate dev
+```
+```
+npm run start:dev
+```
+
 ## Tecnologias utilizadas
 
 - TypeScript
